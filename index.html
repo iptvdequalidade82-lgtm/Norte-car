@@ -568,11 +568,11 @@ const CONFIG = {
   telefone: "",                        // ex.: "(00) 0000-0000" — vazio oculta
   instagram: "https://www.instagram.com/nortecarveiculos_/",
   instagramLabel: "@nortecarveiculos_",
-  email: "[PREENCHER: e-mail de contato]",
-  encarregado: "[PREENCHER: nome e e-mail do encarregado de dados]",
-  razaoSocial: "[PREENCHER: razão social]",
-  cnpj: "[PREENCHER: CNPJ]",
-  horarios: [["[PREENCHER: dias]","[PREENCHER: horário]"]],
+  email: "",
+  encarregado: "administração da Norte Car Veículos",
+  razaoSocial: "Norte Car Veículos",
+  cnpj: "em atualização",
+  horarios: [["Atendimento","Consulte pelo WhatsApp"]],
   siteUrl: ""                          // ex.: "https://nortecar.com.br/" — vazio usa o endereço atual
 };
 
@@ -862,7 +862,7 @@ function legalHTML(k){
   <p style="margin-top:36px"><a class="btn btn-line" href="#inicio">Voltar ao site</a></p></div></section>`;
   if(k==="privacidade") return `<section class="legal"><div class="wrap"><p class="kicker">Documento</p><h1>Política de privacidade</h1><p class="upd">${upd}</p>
   <p>Esta política explica como a ${esc(L.nome)} trata dados pessoais neste site, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
-  <h2>Quem cuida dos seus dados</h2><p>Controlador: ${esc(L.razaoSocial)}, CNPJ ${esc(L.cnpj)}, ${esc(L.endereco)}, ${esc(L.cidade)}, CEP ${esc(L.cep)}.<br>Encarregado pelo tratamento de dados: ${esc(L.encarregado)}. Canal: ${esc(L.email)} ou WhatsApp ${esc(L.whatsappLabel)}.</p>
+  <h2>Quem cuida dos seus dados</h2><p>Controlador: ${esc(L.razaoSocial)}, CNPJ ${esc(L.cnpj)}, ${esc(L.endereco)}, ${esc(L.cidade)}, CEP ${esc(L.cep)}.<br>Encarregado pelo tratamento de dados: ${esc(L.encarregado)}. Canal: ${L.email?esc(L.email)+" ou ":""}WhatsApp ${esc(L.whatsappLabel)}.</p>
   <h2>O que coletamos e por quê</h2><p>O site não tem formulário, cadastro nem login. Os dados só chegam até nós se você decidir falar com a loja pelo WhatsApp.</p>
   <div class="tw"><table><thead><tr><th>Dado</th><th>Finalidade</th><th>Base legal</th><th>Por quanto tempo</th></tr></thead><tbody>
   <tr><td>Nome, telefone e mensagem enviados no WhatsApp</td><td>Responder seu atendimento e negociar o veículo de interesse</td><td>Procedimentos preliminares a contrato, a seu pedido (art. 7º, V)</td><td>Até 12 meses após o último contato, se não houver compra</td></tr>
@@ -880,7 +880,7 @@ function legalHTML(k){
   <h2>Imagens</h2><p>Quando indicado como "imagem ilustrativa" ou "foto ilustrativa do modelo", a imagem representa apenas o modelo e não a unidade anunciada; ela pode vir de material de divulgação de terceiros e será substituída por fotos reais do estoque. Fotos reais podem ter pequenas variações de cor por causa de iluminação e tela.</p>
   <h2>Contato pelo WhatsApp</h2><p>Os botões de contato abrem uma mensagem pronta no WhatsApp. O envio depende de você, e o uso do aplicativo segue os termos do próprio WhatsApp.</p>
   <h2>Propriedade intelectual</h2><p>Textos, marca e layout deste site pertencem à ${esc(L.nome)} ou são usados com autorização. Marcas de fabricantes citadas pertencem aos seus titulares e servem apenas para identificar os veículos.</p>
-  <h2>Direitos do consumidor</h2><p>Estes termos não limitam os direitos previstos no Código de Defesa do Consumidor, incluindo a garantia legal de 90 dias para vícios em produtos duráveis (art. 26). Condições de garantia adicionais oferecidas pela loja são informadas por escrito na compra. Dúvidas: ${esc(L.email)}.</p>
+  <h2>Direitos do consumidor</h2><p>Estes termos não limitam os direitos previstos no Código de Defesa do Consumidor, incluindo a garantia legal de 90 dias para vícios em produtos duráveis (art. 26). Condições de garantia adicionais oferecidas pela loja são informadas por escrito na compra. Dúvidas: ${L.email?esc(L.email):"WhatsApp "+esc(L.whatsappLabel)}.</p>
   <h2>Foro</h2><p>Fica eleito o foro do domicílio do consumidor.</p>
   <h2>Empresa</h2><p>${esc(L.razaoSocial)} · CNPJ ${esc(L.cnpj)} · ${esc(L.endereco)}, ${esc(L.cidade)}.</p>
   <p style="margin-top:36px"><a class="btn btn-line" href="#inicio">Voltar ao site</a></p></div></section>`;
